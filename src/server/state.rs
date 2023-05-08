@@ -5,14 +5,13 @@
 use dashmap::DashMap;
 use std::sync::Arc;
 use std::time::Duration;
-use dashmap::mapref::multiple::{RefMulti, RefMutMulti};
+use dashmap::mapref::multiple::{RefMulti};
 use tokio::sync::{broadcast, Mutex};
 use uuid::Uuid;
 use serde::{Deserialize, Serialize};
 use tokio::time;
 use crate::server::libs::current_time_secs;
 
-pub const MAX_ROOM_SIZE: usize = 2;
 pub const MIN_AGE: u64 = 3600;
 
 pub type Rooms = Arc<DashMap<Uuid, Arc<Room>>>;
